@@ -38,8 +38,7 @@ class ProductServiceTest {
     void testValidateProductForIllegalArgument()
     {
         Product product = new Product(1L, "Laptop", "Expensive", -1500);
-        //when(productRepository.save(product)).thenReturn(product);
-        assertThrows(IllegalArgumentException.class, ()-> productService.saveProduct(product));
-
+        IllegalArgumentException iae = assertThrows(IllegalArgumentException.class, ()-> productService.saveProduct(product));
+        assertEquals("Price cannot be negative", iae.getMessage());
     }
 }

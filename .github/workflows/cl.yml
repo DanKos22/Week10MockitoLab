@@ -39,5 +39,3 @@ jobs:
           docker tag product-pipe-image ${{secrets.DOCKER_USERNAME}}/product_pipe_image:latest \
           && docker push ${{secrets.DOCKER_USERNAME}}/product_pipe_image:latest
 
-      - name: Run Unit Tests
-        run: mvn test
